@@ -6,9 +6,9 @@ replicaCount: 1
 
 efsCleaner:
   image:
-    repository: "{{ .Values.global.openReplayContainerRegistry }}/alpine"
+    repository: "{{ .Values.global.openReplayContainerRegistry }}"
     pullPolicy: Always
-    tag: 3.16.1
+    tag: alpine-3.16.1
   retention: 2
   pvc:
     # This can be either persistentVolumeClaim or hostPath.

@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: "{{ .Values.global.openReplayContainerRegistry }}/assets"
+  repository: "{{ .Values.global.openReplayContainerRegistry }}"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "assets-{{ .Values.global.openReplayGitSHA1 }}"
 
 imagePullSecrets: []
 nameOverride: "assets"
