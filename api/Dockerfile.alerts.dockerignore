@@ -6,6 +6,6 @@
 **/*deploy.sh
 Dockerfile*
 
-app.py
-entrypoint_alerts.sh
-requirements.txt
+# app.py
+# entrypoint_alerts.sh
+# requirements.txt
