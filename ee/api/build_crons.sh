@@ -27,13 +27,13 @@ function build_api(){
     envarg="default-ee"
     tag="ee-"
 
-    docker buildx build --platform linux/amd64 -f ./Dockerfile.crons --build-arg envarg=$envarg -t ${DOCKER_REPO:-'local'}/olivia:crons-${git_sha1} .
+    docker buildx build --platform linux/amd64 -f ./Dockerfile.crons --build-arg envarg=$envarg -t ${DOCKER_REPO:-'local'}/openreplay:crons-${git_sha1} .
     cd ../api
     rm -rf ../_crons
     [[ $PUSH_IMAGE -eq 1 ]] && {
-        docker push ${DOCKER_REPO:-'local'}/olivia:crons-${git_sha1}
-        docker tag ${DOCKER_REPO:-'local'}/olivia:crons-${git_sha1} ${DOCKER_REPO:-'local'}/olivia:crons-${tag}latest
-        docker push ${DOCKER_REPO:-'local'}/olivia:crons-${tag}latest
+        docker push ${DOCKER_REPO:-'local'}/openreplay:crons-${git_sha1}
+        docker tag ${DOCKER_REPO:-'local'}/openreplay:crons-${git_sha1} ${DOCKER_REPO:-'local'}/openreplay:crons-${tag}latest
+        docker push ${DOCKER_REPO:-'local'}/openreplay:crons-${tag}latest
     }
     echo "completed crons build"
 }

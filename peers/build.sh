@@ -20,11 +20,11 @@ function build_api(){
     [[ $1 == "ee" ]] && {
         cp -rf ../ee/peers/* ./
     }
-    docker buildx build --platform linux/amd64 -f ./Dockerfile -t ${DOCKER_REPO:-'local'}/olivia:peers-${git_sha1} .
+    docker buildx build --platform linux/amd64 -f ./Dockerfile -t ${DOCKER_REPO:-'local'}/openreplay:peers-${git_sha1} .
     [[ $PUSH_IMAGE -eq 1 ]] && {
-        docker push ${DOCKER_REPO:-'local'}/olivia:peers-${git_sha1}
-        docker tag ${DOCKER_REPO:-'local'}/olivia:peers-${git_sha1} ${DOCKER_REPO:-'local'}/olivia:peers-latest
-        docker push ${DOCKER_REPO:-'local'}/olivia:peers-latest
+        docker push ${DOCKER_REPO:-'local'}/openreplay:peers-${git_sha1}
+        docker tag ${DOCKER_REPO:-'local'}/openreplay:peers-${git_sha1} ${DOCKER_REPO:-'local'}/openreplay:peers-latest
+        docker push ${DOCKER_REPO:-'local'}/openreplay:peers-latest
     }
     echo "peer docker build complted"
 }

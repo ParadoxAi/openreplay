@@ -21,9 +21,9 @@ check_prereq() {
 export DOCKER_BUILDKIT=1
 function build(){
     # Run docker as the same user, else we'll run in to permission issues.
-    docker build -t ${DOCKER_REPO:-'local'}/olivia:frontend-${git_sha1} --platform linux/amd64 --build-arg SERVICE_NAME=$image .
+    docker build -t ${DOCKER_REPO:-'local'}/openreplay:frontend-${git_sha1} --platform linux/amd64 --build-arg SERVICE_NAME=$image .
     [[ $PUSH_IMAGE -eq 1 ]] && {
-        docker push ${DOCKER_REPO:-'local'}/olivia:frontend-${git_sha1}
+        docker push ${DOCKER_REPO:-'local'}/openreplay:frontend-${git_sha1}
     }
     echo "frotend build completed"
 }
