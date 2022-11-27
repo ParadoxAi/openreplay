@@ -29,13 +29,13 @@ function build_api(){
         envarg="default-ee"
         tag="ee-"
     }
-    docker build -f ./Dockerfile --build-arg envarg=$envarg -t ${DOCKER_REPO:-'local'}/chalice:${git_sha1} .
+    docker buildx build --platform linux/amd64 -f ./Dockerfile --build-arg envarg=$envarg -t ${DOCKER_REPO:-'local'}/olivia:chalice-${git_sha1} .
     cd ../api
     rm -rf ../_api
     [[ $PUSH_IMAGE -eq 1 ]] && {
-        docker push ${DOCKER_REPO:-'local'}/chalice:${git_sha1}
-        docker tag ${DOCKER_REPO:-'local'}/chalice:${git_sha1} ${DOCKER_REPO:-'local'}/chalice:${tag}latest
-        docker push ${DOCKER_REPO:-'local'}/chalice:${tag}latest
+        docker push ${DOCKER_REPO:-'local'}/olivia:chalice-${git_sha1}
+        docker tag ${DOCKER_REPO:-'local'}/olivia:chalice-${git_sha1} ${DOCKER_REPO:-'local'}/olivia:chalice-${tag}latest
+        docker push ${DOCKER_REPO:-'local'}/olivia:chalice-${tag}latest
     }
     echo "api docker build completed"
 }

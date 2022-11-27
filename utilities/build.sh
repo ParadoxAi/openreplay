@@ -22,14 +22,14 @@ function build_api(){
     [[ $1 == "ee" ]] && {
         cp -rf ../ee/utilities/* ./
     }
-    docker build -f ./Dockerfile -t ${DOCKER_REPO:-'local'}/assist:${git_sha1} .
+    docker buildx build --platform linux/amd64 -f ./Dockerfile -t ${DOCKER_REPO:-'local'}/olivia:assist-${git_sha1} .
 
     cd ../utilities
     rm -rf ../_utilities
     [[ $PUSH_IMAGE -eq 1 ]] && {
-        docker push ${DOCKER_REPO:-'local'}/assist:${git_sha1}
-        docker tag ${DOCKER_REPO:-'local'}/assist:${git_sha1} ${DOCKER_REPO:-'local'}/assist:latest
-        docker push ${DOCKER_REPO:-'local'}/assist:latest
+        docker push ${DOCKER_REPO:-'local'}/olivia:assist-${git_sha1}
+        docker tag ${DOCKER_REPO:-'local'}/olivia:assist-${git_sha1} ${DOCKER_REPO:-'local'}/olivia:assist-latest
+        docker push ${DOCKER_REPO:-'local'}/olivia:assist-latest
     }
     echo "build completed for assist"
 }
