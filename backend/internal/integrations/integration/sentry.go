@@ -37,7 +37,7 @@ type sentryEvent struct {
 }
 
 func (sn *sentry) Request(c *client) error {
-	requestURL := fmt.Sprintf("https://sentry.io/api/0/projects/%v/%v/events/", sn.OrganizationSlug, sn.ProjectSlug)
+	requestURL := fmt.Sprintf("https://devsentry.paradox.ai/api/0/projects/%v/%v/events/", sn.OrganizationSlug, sn.ProjectSlug)
 	req, err := http.NewRequest("GET", requestURL, nil)
 	if err != nil {
 		return err

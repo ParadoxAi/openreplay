@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: "{{ .Values.global.openReplayContainerRegistry }}/assist"
+  repository: "{{ .Values.global.openReplayContainerRegistry }}"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "assist-{{ .Values.global.openReplayGitSHA1 }}"
 
 imagePullSecrets: []
 nameOverride: "assist"
@@ -86,7 +86,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 env:
-  REDIS_URL: "redis://redis-master.db.svc.cluster.local:6379"
+  REDIS_URL: "redis://redis-master.openreplay.svc.cluster.local:6379"
   debug: 0
   uws: false
   redis: false

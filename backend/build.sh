@@ -21,9 +21,9 @@ check_prereq() {
 function build_service() {
     image="$1"
     echo "BUILDING $image"
-    docker build -t ${DOCKER_REPO:-'local'}/$image:${git_sha1} --platform linux/amd64 --build-arg SERVICE_NAME=$image .
+    docker build -t ${DOCKER_REPO:-'local'}/openreplay:$image-${git_sha1} --platform linux/amd64 --build-arg SERVICE_NAME=$image .
     [[ $PUSH_IMAGE -eq 1 ]] && {
-        docker push ${DOCKER_REPO:-'local'}/$image:${git_sha1}
+        docker push ${DOCKER_REPO:-'local'}/openreplay:$image-${git_sha1}
     }
     return
 }
@@ -43,7 +43,7 @@ function build_api(){
     for image in $(ls cmd);
     do
         build_service $image
-        echo "::set-output name=image::${DOCKER_REPO:-'local'}/$image:${git_sha1}"
+        echo "::set-output name=image::${DOCKER_REPO:-'local'}/openreplay:$image-${git_sha1}"
     done
     cd ../backend
     rm -rf ../_backend

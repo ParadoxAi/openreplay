@@ -88,7 +88,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 env:
-  REDIS_URL: "redis://redis-master.db.svc.cluster.local:6379"
+  REDIS_URL: "redis://redis-master.openreplay.svc.cluster.local:6379"
   debug: 0
   uws: false
   redis: false

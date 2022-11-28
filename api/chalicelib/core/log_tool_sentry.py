@@ -54,7 +54,7 @@ def proxy_get(tenant_id, project_id, event_id):
     if i is None:
         return {}
     r = requests.get(
-        url="https://sentry.io/api/0/projects/%(organization_slug)s/%(project_slug)s/events/%(event_id)s/" % {
+        url="https://devsentry.paradox.ai/api/0/projects/%(organization_slug)s/%(project_slug)s/events/%(event_id)s/" % {
             "organization_slug": i["organizationSlug"], "project_slug": i["projectSlug"], "event_id": event_id},
         headers={"Authorization": "Bearer " + i["token"]})
     if r.status_code != 200:
