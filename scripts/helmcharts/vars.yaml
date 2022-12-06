@@ -184,28 +184,122 @@ chalice:
 #       cpu: 512m
 #       memory: 2056Mi
 
-# override defautl variables
+# Override Some Defautl Variables
+alerts:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+assets:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
 assist:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
 
 chalice:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+db:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+ender:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
 
 frontend:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+heuristics:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
 
 http:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+integrations:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
 
 peers:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+sink:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+storage:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
