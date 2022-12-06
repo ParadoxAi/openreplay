@@ -17,6 +17,10 @@ postgresql: &postgres
   # asdf
   #     cpu: 2
 
+  # Set this based on Prerequisites: https://docs.openreplay.com/deployment/deploy-kubernetes
+  persistence:
+      size: 50Gi
+
 clickhouse:
   # For enterpriseEdition
   enabled: false
@@ -49,6 +53,10 @@ redis: &redis
   # enabled: false
   redisHost: "redis-master.openreplay.svc.cluster.local"
   redisPort: "6379"
+  # Set this based on Prerequisites: https://docs.openreplay.com/deployment/deploy-kubernetes
+  master:
+    persistence:
+      size: 50Gi
 
 minio:
   # If you have extrenal s3 storage, like AWS, or GCP
