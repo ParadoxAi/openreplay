@@ -106,6 +106,19 @@ ingress-nginx: &ingress-nginx
       ssl-redirect: true
       force-ssl-redirect: true
       proxy-body-size: 10m
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+      maxReplicas: 4
+      targetCPUUtilizationPercentage: 50
+      targetMemoryUtilizationPercentage: 50
+    nodeSelector:
+      Dedicated: openreplay-dev
+    tolerations:
+    - key: dedicated
+      operator: "Equal"
+      value: openreplay
+      effect: NoSchedule
 
 # Application specific variables
 global:
@@ -189,17 +202,31 @@ alerts:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 assets:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 assist:
   ingress:
@@ -208,9 +235,16 @@ assist:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 chalice:
   ingress:
@@ -219,25 +253,46 @@ chalice:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 db:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 ender:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 frontend:
   ingress:
@@ -246,17 +301,31 @@ frontend:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 heuristics:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 http:
   ingress:
@@ -265,17 +334,31 @@ http:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 integrations:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 peers:
   ingress:
@@ -284,22 +367,43 @@ peers:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 sink:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 storage:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
