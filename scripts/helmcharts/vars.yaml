@@ -17,6 +17,10 @@ postgresql: &postgres
   # asdf
   #     cpu: 2
 
+  # Set this based on Prerequisites: https://docs.openreplay.com/deployment/deploy-kubernetes
+  persistence:
+      size: 50Gi
+
 clickhouse:
   # For enterpriseEdition
   enabled: false
@@ -49,6 +53,10 @@ redis: &redis
   # enabled: false
   redisHost: "redis-master.openreplay.svc.cluster.local"
   redisPort: "6379"
+  # Set this based on Prerequisites: https://docs.openreplay.com/deployment/deploy-kubernetes
+  master:
+    persistence:
+      size: 50Gi
 
 minio:
   # If you have extrenal s3 storage, like AWS, or GCP
@@ -98,6 +106,19 @@ ingress-nginx: &ingress-nginx
       ssl-redirect: true
       force-ssl-redirect: true
       proxy-body-size: 10m
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+      maxReplicas: 4
+      targetCPUUtilizationPercentage: 50
+      targetMemoryUtilizationPercentage: 50
+    nodeSelector:
+      Dedicated: openreplay-dev
+    tolerations:
+    - key: dedicated
+      operator: "Equal"
+      value: openreplay
+      effect: NoSchedule
 
 # Application specific variables
 global:
@@ -176,28 +197,213 @@ chalice:
 #       cpu: 512m
 #       memory: 2056Mi
 
-# override defautl variables
+# Override Some Defautl Variables
+alerts:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+assets:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
 assist:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 chalice:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+db:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+ender:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 frontend:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+heuristics:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 http:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+integrations:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
 
 peers:
   ingress:
     tls:
       secretName: ""
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+sink:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
+
+storage:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+  nodeSelector:
+      Dedicated: openreplay-dev
+  tolerations:
+  - key: dedicated
+    operator: "Equal"
+    value: openreplay
+    effect: NoSchedule
