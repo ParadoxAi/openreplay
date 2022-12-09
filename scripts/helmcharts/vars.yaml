@@ -117,7 +117,7 @@ ingress-nginx: &ingress-nginx
         cpu: 100m
         memory: 1536Mi
     nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
     tolerations:
     - key: dedicated
       operator: "Equal"
@@ -210,7 +210,7 @@ alerts:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -229,7 +229,7 @@ assets:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -251,7 +251,7 @@ assist:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -273,7 +273,7 @@ chalice:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -292,7 +292,7 @@ db:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -311,7 +311,7 @@ ender:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -333,7 +333,7 @@ frontend:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -352,7 +352,7 @@ heuristics:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -374,7 +374,7 @@ http:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -393,7 +393,7 @@ integrations:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -415,7 +415,7 @@ peers:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -434,7 +434,7 @@ sink:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
@@ -453,7 +453,7 @@ storage:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
