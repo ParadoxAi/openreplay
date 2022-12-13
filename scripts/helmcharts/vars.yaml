@@ -109,11 +109,15 @@ ingress-nginx: &ingress-nginx
     autoscaling:
       enabled: true
       minReplicas: 1
-      maxReplicas: 4
-      targetCPUUtilizationPercentage: 50
-      targetMemoryUtilizationPercentage: 50
+      maxReplicas: 2
+      targetCPUUtilizationPercentage: 80
+      targetMemoryUtilizationPercentage: 80
+    resources:
+      requests:
+        cpu: 100m
+        memory: 1536Mi
     nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
     tolerations:
     - key: dedicated
       operator: "Equal"
@@ -203,30 +207,38 @@ alerts:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 assets:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 assist:
   ingress:
@@ -236,15 +248,19 @@ assist:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 chalice:
   ingress:
@@ -254,45 +270,57 @@ chalice:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 db:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 ender:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 frontend:
   ingress:
@@ -302,30 +330,38 @@ frontend:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 heuristics:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 http:
   ingress:
@@ -335,30 +371,38 @@ http:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 integrations:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 peers:
   ingress:
@@ -368,42 +412,54 @@ peers:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 sink:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
 
 storage:
   autoscaling:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 50
-    targetMemoryUtilizationPercentage: 50
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
   nodeSelector:
-      Dedicated: openreplay-dev
+    Dedicated: openreplay-dev
   tolerations:
   - key: dedicated
     operator: "Equal"
     value: openreplay
     effect: NoSchedule
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
